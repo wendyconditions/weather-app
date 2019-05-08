@@ -11,6 +11,14 @@ weatherForm.addEventListener('submit', (e) => {
     getWeather(location);
 })
 
+
+weatherForm.addEventListener('click', function (event) {
+    if(event.target.className.includes('class') || event.target.className.includes('fa-microphone')){
+        event.preventDefault();
+        console.log('microphone capability activated')
+    }
+}, false);
+
 function getWeather(location) {
     fetch('/weather?address=' + location).then((response) => {
         response.json().then((data) => {
